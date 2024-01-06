@@ -1,0 +1,36 @@
+{% extends 'base_new.html' %}
+
+{% block title %}Product Page{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">EDIT PRODUCT</h2>
+    {% if edit_product %}
+    <form method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table class="table">
+            <tr>
+                <td><label class="form-label">name</label></td>
+                <td><input type="text" class="form-control" name="name" value="{{ edit_product.name }}" ></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">price</label></td>
+                <td><input type="text" class="form-control" name="price" value="{{ edit_product.price }}" ></td>
+            </tr>
+            <tr>
+                <td><label class="form-label">image</label></td>
+                <td><input type="file" class="form-control" name="image" accept="image/*" ></td>
+            </tr>
+
+            <tr>
+                <td><input type='submit' value='Save Changes'></td>
+            </tr>
+        </table>
+
+    </form>
+    {% endif %}
+</div>
+
+{% endblock %}

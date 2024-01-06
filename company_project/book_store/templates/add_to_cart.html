@@ -1,0 +1,17 @@
+<!-- templates/your_app/add_to_cart.html -->
+
+{% extends 'base_new.html' %}
+
+{% block title %}Add to Cart{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add to Cart</h2>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" value="1" min="1">
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </form>
+</div>
+{% endblock %}

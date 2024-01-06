@@ -1,0 +1,41 @@
+<!-- templates/shop/account.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block content %}
+    <h2>Welcome to Registration page!</h2>
+    <div class="login-form"><!-- login form -->
+        <form method='POST' action="">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td><label class="form-label">First Name</label></td>
+                    <td><input type="text" class="form-control" name="firstname" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Last Name</label></td>
+                    <td><input type="text" class="form-control" name="lastname" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Phone</label></td>
+                    <td><input type="tel" class="form-control" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Email</label></td>
+                    <td><input type="email" class="form-control" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Username</label></td>
+                    <td><input type="text" class="form-control" name="username" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Password</label></td>
+                    <td><input type="password" class="form-control" name="password" required></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary btn-block">Add </button>
+        </form>
+    </div>
+{% endblock %}

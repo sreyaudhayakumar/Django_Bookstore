@@ -1,0 +1,33 @@
+<!-- templates/shop/product_page.html -->
+
+{% extends 'base_new.html' %}
+
+{% block title %}Product Page{% endblock %}
+
+{% block content %}
+
+<header>
+    <h1>Books</h1>
+</header>
+
+<div class="product-container">
+    {% for book_details in bookdetail %}
+    <div class="product-details">
+        <img class="product-image" src="{{ book_details.image.url }}" alt="Book Image">
+        <div class="text-details">
+            <h2>{{book_details.name }}</h2>
+            <p>Price: {{ book_details.price }} Rs</p>
+            <a href="{% url 'edit_product' product_id=book_details.id %}" class="button">Edit</a>
+
+            {% comment %} <button>remove</button> {% endcomment %}
+            <form method="post" action="{% url 'delete_product' product_id=book_details.id %}">
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+            </form>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base_new.html' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block content %}
+    <h2>Add product!</h2>
+    <div class="login-form"><!-- login form -->
+        <form method='POST'  enctype="multipart/form-data" action="">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <td><label class="form-label"> Name</label></td>
+                    <td><input type="text" class="form-control" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Price</label></td>
+                    <td><input type="number" class="form-control" name="price" required></td>
+                </tr>
+                <tr>
+                    <td><label class="form-label">Image</label></td>
+                    <td><input type="file" class="form-control" name="image" required></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary btn-block">Add </button>
+            <a href="{% url 'product_details' %}">product details</a> 
+        </form>
+    </div>
+{% endblock %}

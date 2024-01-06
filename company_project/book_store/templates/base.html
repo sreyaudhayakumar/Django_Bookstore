@@ -1,0 +1,64 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Shop{% endblock %}</title>
+    <!-- Add your CSS styles or link to external stylesheets here -->
+    <style>
+        /* Add your styles here */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #f8f9fa;  /* Light color */
+            color: #343a40;            /* Dark color */
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'base' %}">Home</a></li>
+            {% comment %} <li><a href="{% url 'product' %}">Products</a></li>  {% endcomment %}
+            <li><a href="{% url 'login' %}">Login</a></li> 
+            <li><a href="{% url 'account' %}">Register</a></li>
+            {% comment %} <li><a href="{% url 'add_product' %}">Add product</a></li>   {% endcomment %}
+            {% comment %} <li><a href="{% url 'add_product' %}">Add product</a></li>   {% endcomment %}
+
+
+        </ul>
+    </nav>
+    <div class="heading">
+        <h2>Hello ,welcome to Sreya bookstore!</h2>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

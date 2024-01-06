@@ -1,0 +1,29 @@
+<!-- templates/shop/product_page.html -->
+
+{% extends 'base_new.html' %}
+
+{% block title %}Product Page{% endblock %}
+
+{% block content %}
+
+<header>
+    <h1>Books</h1>
+</header>
+
+<div class="product-container">
+    {% for book in bk %}
+    <div class="product-details">
+        <img class="product-image" src="{{ book.image.url }}" alt="Book Image">
+        <div class="text-details">
+            <h2>{{ book.name }}</h2>
+            <p>Price: {{ book.price }} Rs</p>
+            <form method="post" action="{% url 'add_to_cart' book.id %}">
+                {% csrf_token %}
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
